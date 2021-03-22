@@ -1,0 +1,18 @@
+4.2-Leer y escribir atributos
+	-This se puede usar en todo el contexto de la clase. Excepto en metodos o bloques estaticos ya que no pertenecen a la clase
+	-los bloques estaticos se ejecutan una sola vez cuando la clase se carga por primera vez por la jvm
+	-los bloques no estaticos se ejecutan antes del contructor cada vez que se instancia la clase
+	-El nombre del archivo tiene que tener el mismo nombre que la unica clase publica
+		-Esta regla no aplica para clases anidadas
+	-Scope y Visibilidad
+		-No se pueden definir dos variables con el mismo nivel de visibilidad
+		
+4.3- Inferencia de variable local
+	-Desde java 10 se puede usar "var"
+		-var solo se puede usar en metodos
+		-no se puede usar en atributos de la clase o en un atributo estatudo o en un parametro de metodo
+		-se tiene que inicializar al instante
+		-no puede ser un return
+
+-4.6 Ciclos de vida de los objetos
+	

@@ -1,0 +1,3 @@
+-Las instancias de un array son instancias de algun tipo que hereda de Object
+-int[] cadenaDeclaracion2= {2,3}; <- Se puede declarar la cadena al momento de definirla 
+-usando arrays
