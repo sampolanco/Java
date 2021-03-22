@@ -1,0 +1,40 @@
+-Asignacion
+	-static byte tipoByte=32; <- Si un tipo de dato cabe dentro de otr se pueden asignar
+		-Un byte puede ser asignado a un int por que 8 bits caben en 32
+	-La conversion de tipos primitivos es analoga a cambiar agua entre cubetas. Se puede asegurar que el agua de una cubeta
+	 mas pequeña siempre cabe en una mas grande. Pero cuando acarreamos de una mas grande a una pequeña tenemos que asegurar
+	 que el agua cabe en la cubeta pequeña o perderemos informacion.
+	 	-static byte tipoByte3=(byte)3200; <- Si no cabe se tiene que hacer un casteo explicito 
+	 	-El compilador no tiene forma de ejecutar codigo, por lo que no le es posible saber si una variable grande cabe 
+	 	 en una variable peqeña
+	 	 	-Si se espeficifícan las variables como final se puede omitir el casteo y si el compilador determina que no cabe
+	 	 	 arroja un error 
+	 	 		-procesar((byte)tipoIntLocalFinal); <- Esto no aplica para metodos y se tiene que hacer el cast
+	-Se puede hacer cast entre todos los tipos primitivos. Excepto boolean
+	-Existen excepciones
+		-char al ser una numero sin signo no se puede asignar desde un tipo mas pequeño
+			-Solo se puede omitir el casteo si la variable que se le asignará es final ya que el compilador sabe que cabe en 
+			 el char
+		-las variables de tipo flotante como double y float no se pueden pasar sin cast a sus equivalentes en tamaño
+			-int tipoIntDesdeFloat=(int)tipoFloatLocal;
+			-long tipoLongDesdeDouble=(long)tipoDoubleLocal;
+			
+-3.4 wrapper clases
+	-Una clase envolvente tiene dos cronstructores
+		-Uno para su tipo primitivo y otro para un String
+		-Existen excepcioes
+			-Character no tiene constructor de String
+			-Float tiene un constructor adicional que recibe double. Para el casó de valueOf no aplica
+	-ValueOf regresa un cached object por lo que es mas eficiente en memoria que el new que siempre crea un objeto	
+		-Cache de -127 a 127, true y false, etc. Otros valores no se garantizan
+	-Autoboxing
+		-Está desde java 5 y permite asignar primitivos a wrappers
+	-Unboxing
+		-Es lo contrario al Autoboxing y permite asignar wrappers a primitios
+			-short shortLocal2=shortLocalClase;
+			-int intLocal3=shortLocalClase; <- funciona cuando el wrapper quepa en el primitivo
+	-float floatLocal=enteroLocal.floatValue(); <- Para contertir a primitivo se tiene el metodo ...Value();
+	-String tiene el parse para transdormar a primitivos
+
+			
+			

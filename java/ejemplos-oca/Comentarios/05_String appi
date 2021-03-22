@@ -1,0 +1,13 @@
+-5.1 Que es un string
+	-Es una clase final que extiende de Object y Charsequence
+	-Constructores (),(String),(StringBuilder),(char[]),(byte[])
+	-Pool de Strings
+		-cuando un String no se crea con el comando new. Estos se crean en un area especial del heap donde se verifica si el
+		 String ya existe
+	-Metodos utiles
+		-"ejemplo".charAt(2)
+		-"ejemplo.indexOf('o') --primera ocurrencia
+		-strip o trim. Se recomienda usar strip por que quita espacios al inicio y final en mas casos
+
+-5.2 StringBuilder
+	-StringBuffer es la version threadsafe pero es mas lento

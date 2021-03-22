@@ -1,0 +1,7 @@
+-For
+	-Los parametros del ciclo for son opcionales por lo que se puede especificar for(;;)
+	-for( int i = 5, k = 7; i < 10; i + +); <- se pueden declarar multiples variables pero solo de un tipo
+	-solo se puede tener una expresion que regrese true
+	-En el campo de incremento se puede tener cualquier logica
+	-break para romper el ciclo
+	-continue para seguir el siguiente ciclo
