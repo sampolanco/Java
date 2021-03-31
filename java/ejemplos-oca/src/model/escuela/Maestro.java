@@ -4,6 +4,9 @@ public class Maestro extends Trabajador{
 	private String nombreMateria;
 	
 	public Maestro() {
+		this("nombre materia default");
+	}
+	public Maestro(String nombreMateria) {
 	}
 	
 	@Override

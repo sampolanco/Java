@@ -1,0 +1,52 @@
+-Reglas en las interfaces
+	-todo es publico por default
+		-se pueden declarar metodos private
+	-todas las variables en una interface son public static final
+	
+-Una interface puede tener un metodo default
+-puede tener metodos estaticos
+-puede tener metodos privados
+	-esto es una ayuda para los metodos default y estaticos cuando se hacen muy grandes
+	
+-Diferencia entre interface y clase abstracta
+	-Si se captura comportamiento debe ser una interface
+	-Si se captura un objeto conceptual debe ser una clase abstracta
+	
+-Collection
+	-List
+		-ArrayList
+			-Como su nombre lo indica, funciona a partir de un array
+				-cada vez que se agrega un elemento, se revisa si cabe dentro del array actual. Si no, se crea un nuevo array
+	
+-Generics
+	-Ayuda a que el programa sea typeSafe
+	-List<String> lista1 =new ArrayList<>(); <- el compilador intuye el tipo de generico
+	-public class ClaseGenerica <T> <- T se puede manipular como object
+	-Cuando se usan generics como atributo de un metodo no se puede hacer sobrecarga ni sobreescribir el metodo
+		-La jvm quita las llaves y hace un manejo como si fuese object. Casteando donde sea necesario
+		
+-java.util.Collection
+	-Es la raiz de todas las colecciones
+	-Declara los metodos que son comunes para todas las colecciones
+		-Metodos como add, remove, clear, size, isEmpty, toArray etc.
+	-List
+		-remove elimina la primera ocurrencia
+		-retainsAll retiene todos los elementos que se pasan en la funcion
+		-List.of("1","2"); <- desde java 9
+			-la lista no es modificable de ninguna forma
+			-maximo 10 elementos
+			
+	-ArrayList
+		-new ArrayList<>(100); <- Crea un array con una capacidad inicial. El default es 10
+		-El metodo toString() pinta el array de una forma [1,2,3]
+
+-ArrayList vs Array
+	-ArrayList necesita mas espacio para guardar la misma cantidad de valores
+	-ArrayList contiene metodos utiles y se incrementa automaticamente
+	-En terminos de performance son iguales ya que ArrayList por dentro tiene un Array
+	
+	
+	
+	
+	
+	

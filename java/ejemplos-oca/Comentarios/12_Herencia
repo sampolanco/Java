@@ -1,0 +1,56 @@
+-super
+	-Se puede mandar a llamar a un constructor padre usando super();
+		-tiene que ser la primera linea del constructor hijo
+	-se pueden usar atributos o metodos del padre usando super.atributo;
+-this
+	-funciona de igual forma que super pero para la clase actual
+	-no pueden haber constructores recursivos
+
+-orden de inicializacion
+	-se ejecutan los bloques estaticos y se inician los campos estaticos de las superclases 
+	-se ejecutan los bloques estaticos y se inician los campos estaticos de la clase 
+	-se ejecutan los bloques no estaticos de la superclase
+	-se ejecuta el constructor de la superclase
+	-se ejecutan los bloques no estaticos de la clase
+	-se ejecuta el constructor de la clase
+
+-final
+	-clases
+		-son clases que no pueden ser extendidas
+		-una clase abstracta no puede ser final ya que no tendria uso
+	-metodos
+		-no puede ser sobreescrito
+
+-combinaciones
+	- abstract y private no pueden ir juntos ya que no tiene sentido
+	- un metodo privado practicamente ya es final
+	- abstrac y static no pueden ir juntos por que un static se tiene que definir
+	- abstract y final no pueden ir juntos
+
+-abstract
+	-una clase abstracta puede o no tener metodos abstractos pero si tiene un metodo abstracto la clase debe ser abstracta
+	
+-herencia
+	-reglas
+		-un meodo heredado del padre no puede ser mas accesible que el hijo.
+			-si el padre es protected, el hijo solo puede ser protected o public
+		-el tipo de retorno del hijo en un metodo puede ser igual o un subtipo que el del padre
+		-los tipos de dato de un metodo sobreescrito tiene que ser exactamente igual
+		-el tipo de excepcion del hijo en un metodo puede ser igual o un subtipo que el del padre
+	-se pueden tener dos metodos privados iguales en el padre e hijo
+	-si se intenta sobrecargar un metodo final se lanza una excepcion
+	
+-Casting
+	-el casteo de objetos no cambia al objeto. simplemente provee informacion al compilador para que java pueda trabajarlo
+	
+	
+	
+
+
+
+
+		
+		
+		
+		
+		

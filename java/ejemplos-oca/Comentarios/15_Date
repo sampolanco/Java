@@ -1,0 +1,28 @@
+-Version anterior a java 8
+	-Calendar fecha= Calendar.getInstance()
+	-fecha.set(1, 8, 1994);
+		-el mes de la fecha se toma de 0 a 11
+	-Se utiliza Calendar para manejo de fechas y la fecha como tal se guarda en un Date
+	-Dar formato
+		-DateFormat formato=new SimpleDateFormat("dd-MM-yyyy");
+		-Date fechaConvertida=formato.parse(fechaString);
+		-Calendar fecha=Calendar.getInstance();
+			-Se tiene que guardar primero un Date y luego setearlo al Calendar para poder realizar operaciones
+		
+-Con java 8
+	-LocalDate fecha =LocalDate.now();
+	-LocalDate fecha =LocalDate.of(1994, 7, 1);
+	-LocalTime inicio2=LocalTime.now();
+	-LocalTime fin2=LocalTime.of(8, 0);
+	-LocalDateTime inicio3 =LocalDateTime.now();
+	-LocalDateTime fin3 =LocalDateTime.of(1994, 7, 1,8,0);
+	-Instant instante=Instant.now();
+		-Tiene metodos utiles para medir lapsos cortos de tiempos
+	-Period periodo=Period.between(fechaInicial, fechaFinal);
+		-Sirve para medir lapsos de tiempo entre fechas
+	-Duration.between(tiempo1, tiempo2);
+		-Se puede usar LocalDate, LocalTime, LocalDateTime, Instant
+		-Sirve para tener una representacion en dias, horas, minutos, etc de una diferencia de tiempo
+	-Dar formato
+		-DateTimeFormatter formato=DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		-LocalDate fecha =LocalDate.parse(fechaString, formato);

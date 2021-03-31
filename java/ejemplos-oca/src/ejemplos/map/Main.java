@@ -8,52 +8,51 @@ import java.util.stream.Collectors;
 
 import static java.lang.System.out;
 
-
-import ejemplos.lambda.Persona;
+import model.escuela.Alumno;
 
 
 public class Main {
 
-	private void imprimirV7(Map<Integer,Persona> mapa) {
-		for(Entry<Integer, Persona> entrada:mapa.entrySet()) {
+	private void imprimirV7(Map<Integer,Alumno> mapa) {
+		for(Entry<Integer, Alumno> entrada:mapa.entrySet()) {
 			out.println(entrada.getValue().getNombre());
 		}
 	}
-	private void imprimir(Map<Integer,Persona> mapa) {
+	private void imprimir(Map<Integer,Alumno> mapa) {
 		mapa.forEach((key,value)->out.println(value.getNombre()));
 		/*mapa.entrySet()
 			.stream()
 			.forEach(out::println);*/
 	}
 	
-	private void putIfAbsent(Map<Integer,Persona> mapa) {
+	private void putIfAbsent(Map<Integer,Alumno> mapa) {
 		//mapa.put(4,new Persona("Alejandra","Juarez"));
-		mapa.putIfAbsent(4,new Persona("Alejandra","Juarez"));
+		mapa.putIfAbsent(4,new Alumno());
 		imprimir(mapa);
 	}
-	private void computeIfPresent(Map<Integer,Persona> mapa) {
-		mapa.computeIfPresent(3, (key,value)->new Persona("ComputeIfPresent","Apellido"));
+	private void computeIfPresent(Map<Integer,Alumno> mapa) {
+		mapa.computeIfPresent(3, (key,value)->new Alumno());
 		imprimir(mapa);
 	}
-	private void getOrDefault(Map<Integer,Persona> mapa) {
-		Persona persona=mapa.getOrDefault(3,new Persona("Default","Apellido"));
+	private void getOrDefault(Map<Integer,Alumno> mapa) {
+		Alumno persona=mapa.getOrDefault(3,new Alumno());
 		out.println(persona.getNombre());
 	}
-	private void collect(Map<Integer,Persona> mapa) {
-		Map<Integer,Persona> colectado=mapa
+	private void collect(Map<Integer,Alumno> mapa) {
+		Map<Integer,Alumno> colectado=mapa
 				.entrySet()
 				.stream()
-				.filter(elemento->elemento.getValue().getApellido().contains("Rodriguez"))
+				.filter(elemento->elemento.getValue().getNombre().contains("Rodriguez"))
 				.collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
 		imprimir(colectado);
 	}
 	public static void main(String[] args) {
 		Main main=new Main();
-		Map<Integer,Persona> mapa= new HashMap<>();
-		mapa.put(1,new Persona("Naomi","Polanco"));
-		mapa.put(2,new Persona("Amadeus","Polanco"));
-		mapa.put(3,new Persona("Samuel Antonio","Polanco"));
-		mapa.put(4,new Persona("Aurora","Rodriguez"));
+		Map<Integer,Alumno> mapa= new HashMap<>();
+		mapa.put(1,new Alumno());
+		mapa.put(1,new Alumno());		
+		mapa.put(1,new Alumno());
+		mapa.put(1,new Alumno());
 		
 		out.println("Imprimir V7");
 		main.imprimirV7(mapa);

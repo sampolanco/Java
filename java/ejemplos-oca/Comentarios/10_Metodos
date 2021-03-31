@@ -1,0 +1,26 @@
+Elegir metodo
+	-para elegir un metodo se siguen las siguientes reglas
+		-Tipo exacto. Cuando el metodo recibe el mismo valor que el mandado
+		-Mas especifico. 
+			-Cuando el parametro enviado es del tipo mas cercano en terminos de herencia
+			-Para los primitivos se sigue la siguiente secuencia 
+				-double > float > long > int > char 
+				-int > short > byte
+			-Autoboxing. Solo se puede hacer con el wrapper del primitivo
+			
+Variables finales
+	-se pueden definir e inicializar despues una sola vez en los metodos
+	-para los atributos de clase java obliga a inicializarlas ya que una vez declaradas no pueden ser modificadas
+		-La unica excepcion es una variable estatica en donde se puede inicializar en un bloque estatico
+
+Estaticos
+	-Se puede definir en un metodo o variable
+		-static private
+		-private static
+	-Una variable estatica no se puede llamar desde un contexto estatico
+	-Los elementos estaticos se van cargando de arriba para abajo y no se puede llamar algo definido mas abajo
+		-Los metodos estaticos se pueden mandar a llamar desde otros contextos estaticos
+
+-Java inicia primero las superclases y despues los hijos
+		
+		

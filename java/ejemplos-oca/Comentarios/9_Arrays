@@ -1,3 +1,7 @@
 -Las instancias de un array son instancias de algun tipo que hereda de Object
 -int[] cadenaDeclaracion2= {2,3}; <- Se puede declarar la cadena al momento de definirla 
+	- {2,3} no se puede declarar llamando una funcion. Se tiene que usar new int[] {1,2,3}
 -usando arrays
+	-Una vez creado el array no se puede cambiar el tamaño de este
+	-tienen el atributo length
+	-el metodo clone copia todas las referencias de una lista a otra

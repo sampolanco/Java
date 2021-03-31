@@ -1,0 +1,14 @@
+-default
+	-solo es accesible para las clases que están en el mismo paquete
+-protected
+	-es accesible por clases en el mismo paquete y subclases
+	
+-Clases
+	-Una top-level class solo puede ser publoc o default
+	-las nested classes pueden ser de cualquiera de los 4 tipos
+	-Interfaces
+		-Para el caso de las interfaces. estas siempre deben ser publicas, por lo que si no se le asigna estas son public
+			-desde java 9 ya pueden existir metodos privados
+	-Enum
+		-Sus constructores siempre son privados
+	
