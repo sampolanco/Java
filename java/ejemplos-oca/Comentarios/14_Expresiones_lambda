@@ -1,0 +1,38 @@
+-Una expresion lambra no es mas que un atajo para definir una clase con un metodo para el compilador
+
+-reglas
+	-solo se puede tener un metodo sin implementar
+	-si se implementa un metodo, este debe ser default
+	-no se pueden escribir metodos privados
+	
+-sintaxis
+	-1: Aritmetica aritmetica=(double x, double y)->(x+y)/2;
+	-2: Aritmetica aritmetica=( x, y)->(x+y)/2;
+	-3: Aritmetica aritmetica=(double x, double y)->{return (x+y)/2;};
+
+-scope
+	-Los parametros definidos en la seccion de variables de la funcion lambda existen en el scope actual
+		-No se pueden reutilizar nombres de variables
+	-Se pueden utilizar variables del metodo donde se especifica la lambda pero tiene que ser final (nunca cambiar su valor)
+		-Es opcional usar final. Solo la variable no debe ser modificada y el compilador ya sabe que es final
+	-Se pueden utilizar variables estaticas
+	
+-Inteface funcional
+	-Toda interface que tenga exactamente un metodo abstracto es una interface funcional y puede ser utilizada con lambdas
+
+-Predicado
+	-Tiene un objeto como parametro y regresa un boleano
+	
+-Consumer
+	-Consume un objeto (Se quiere hacer algo con el). Solo se tiene que programar que se quiere hacer con el
+	-No regresa nada
+	
+-Supplier
+	-No tiene parametros y regresa un objeto que se creará con la logica programada
+
+-Otras interfases
+	-Comparator. Recibe dos parametros
+	
+-Metodos utiles
+	lista.removeIf(x->x.equals("Texto")); <-Recibe un predicado para eliminar un elemento de una lista
+	

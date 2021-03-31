@@ -16,6 +16,8 @@ public class numericos {
 		System.out.println("evaluarOperacionEntero parte 2="+resultado2);
 		double resultado3=((double)x)/3;
 		System.out.println("evaluarOperacionEntero parte 3="+resultado3);
+		
+		//double divicionEntreCero=10/0; no marca error de compilacion
 	}
 	
 	/*

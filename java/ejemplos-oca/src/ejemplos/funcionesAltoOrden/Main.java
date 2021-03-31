@@ -6,8 +6,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import ejemplos.lambda.Persona;
-
 import static java.lang.System.out;
 
 public class Main {
