@@ -16,7 +16,7 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
-public class Main {
+public class MainDate {
 
 	private void isAfter(boolean v8) {
 		if(!v8) {
@@ -55,6 +55,7 @@ public class Main {
 			Instant ini=Instant.now();
 			Thread.sleep(200);
 			Instant fin=Instant.now();
+			
 			out.println(Duration.between(ini, fin).toMillis());
 		}
 	}
@@ -96,7 +97,6 @@ public class Main {
 		else {
 			String fechaStr="19-04-2020";
 			DateTimeFormatter formato=DateTimeFormatter.ofPattern("dd-MM-yyyy");
-			
 			LocalDate fecha =LocalDate.parse(fechaStr, formato);
 			out.println(formato);
 			
@@ -106,7 +106,7 @@ public class Main {
 		}
 	}
 	public static void main(String[] args) {
-		Main main =new Main();
+		MainDate main =new MainDate();
 		main.isAfter(true);
 		try {
 			main.medirTiempo(true);
