@@ -5,6 +5,7 @@ public class Maestro extends Trabajador{
 	
 	public Maestro() {
 		this("nombre materia default");
+		
 	}
 	public Maestro(String nombreMateria) {
 	}

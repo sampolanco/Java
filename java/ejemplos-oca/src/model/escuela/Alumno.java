@@ -2,7 +2,7 @@ package model.escuela;
 
 import model.escuela.subpaquete.Libro;
 
-public class Alumno {
+public class Alumno{
 	private String nombre;
 	private Integer edad;
 	private static int datoEstatico=10;

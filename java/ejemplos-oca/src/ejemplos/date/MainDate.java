@@ -5,6 +5,7 @@ import java.util.Date;
 
 import static java.lang.System.out;
 
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 
 public class MainDate {
 
+		
 	private void isAfter(boolean v8) {
 		if(!v8) {
 			Calendar inicio= Calendar.getInstance();
@@ -40,7 +42,7 @@ public class MainDate {
 			LocalDateTime inicio3 =LocalDateTime.now();
 			LocalDateTime fin3 =LocalDateTime.of(1994, 7, 1,8,0);
 			boolean isAfter3=inicio3.isAfter(fin3);
-			out.println(isAfter3);
+			out.println(inicio3);
 			
 		}
 	}
@@ -98,14 +100,27 @@ public class MainDate {
 			String fechaStr="19-04-2020";
 			DateTimeFormatter formato=DateTimeFormatter.ofPattern("dd-MM-yyyy");
 			LocalDate fecha =LocalDate.parse(fechaStr, formato);
-			out.println(formato);
+			out.println(fecha);
 			
 			LocalDate fechaActual=LocalDate.now();
-			String fechaActualStr=formato.format(fechaActual);
+			String fechaActualStr=formato.format(fecha);
 			out.println(fechaActualStr);
 		}
 	}
+	private static void varios() {
+		LocalDate obj =  LocalDate.of(2020, 2, 14);
+        System.out.println(obj.minus(Period.ofDays(10)));
+
+        
+	}
 	public static void main(String[] args) {
+		LocalDate date = LocalDate.parse("1983-06-30");
+        System.out.println(date.plusMonths(8));
+        
+        LocalDate date1 = LocalDate.parse("1980-03-16");
+        LocalDate date2 = LocalDate.parse("1980-03-16");
+        System.out.println(date1.equals(date2) + " : " + date1.isEqual(date2));
+		
 		MainDate main =new MainDate();
 		main.isAfter(true);
 		try {
@@ -120,6 +135,7 @@ public class MainDate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		varios();
 	}
 
 }

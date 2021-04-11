@@ -2,7 +2,7 @@ package ejemplos.bloques;
 
 public class MainBloques {
 	int valorIntClase=2;
-
+	
 	public static void main(String[] args) {
 		System.out.println("inicio de main");
 

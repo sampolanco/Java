@@ -4,6 +4,9 @@
 	-Pool de Strings
 		-cuando un String no se crea con el comando new. Estos se crean en un area especial del heap donde se verifica si el
 		 String ya existe
+		-Los strings que se concatenan en tiempo de compilacion se guardan en el pool
+			-Se necesita que las dos valores que se concatenan sean constantes en tiempo de compilacion como final
+			-Los dos valores que se concatenan deben ser primitivos o de tipo String
 	-Metodos utiles
 		-"ejemplo".charAt(2)
 		-"ejemplo.indexOf('o') --primera ocurrencia
@@ -11,3 +14,8 @@
 
 -5.2 StringBuilder
 	-StringBuffer es la version threadsafe pero es mas lento
+	-el metodo append afecta directamente al objeto
+	
+-String tiene el metodo length();
+	-parecido a los Collections que tienen length
+	-parecido a los arrays que tienen size();

@@ -10,6 +10,12 @@ public class MainArrays {
 	public static void main(String ... args) {
 		declararCadenas();
 		clonado();
+		
+		Object [] x = new Integer[]{50, 50};
+		x[0]=10;
+		System.out.print(x[0]);
+		
+		 //double [] arr = new int[2]; //Error de compilacion
 	}
 	public static void declararCadenas() {
 		List<String> lista= new ArrayList<String>();
