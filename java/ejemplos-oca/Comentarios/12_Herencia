@@ -5,6 +5,7 @@
 -this
 	-funciona de igual forma que super pero para la clase actual
 	-no pueden haber constructores recursivos
+	-solo puede llamarse a un constructor this(...) o super(...)
 
 -orden de inicializacion
 	-se ejecutan los bloques estaticos y se inician los campos estaticos de las superclases 
@@ -32,11 +33,15 @@
 	
 -herencia
 	-reglas
-		-un meodo heredado del padre no puede ser mas accesible que el hijo.
-			-si el padre es protected, el hijo solo puede ser protected o public
-		-el tipo de retorno del hijo en un metodo puede ser igual o un subtipo que el del padre
-		-los tipos de dato de un metodo sobreescrito tiene que ser exactamente igual
-		-el tipo de excepcion del hijo en un metodo puede ser igual o un subtipo que el del padre
+		-Accesibilidad
+			-un meodo heredado del padre no puede ser mas accesible que el hijo.
+				-si el padre es protected, el hijo solo puede ser protected o public
+		-Return
+			-el tipo de retorno del hijo en un metodo puede ser igual o un subtipo que el del padre
+		-Atributos
+			-los tipos de dato de un metodo sobreescrito tiene que ser exactamente igual
+		-Throwable
+			-el tipo de excepcion del hijo en un metodo puede ser igual o un subtipo que el del padre
 	-se pueden tener dos metodos privados iguales en el padre e hijo
 	-si se intenta sobrecargar un metodo final se lanza una excepcion
 	
@@ -44,7 +49,9 @@
 	-el casteo de objetos no cambia al objeto. simplemente provee informacion al compilador para que java pueda trabajarlo
 	
 	
-	
+-default
+	-el orden. Del mas restrigido al menos es: 
+		private -> default -> protected -> public
 
 
 

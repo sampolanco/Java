@@ -18,6 +18,10 @@
 		-las variables de tipo flotante como double y float no se pueden pasar sin cast a sus equivalentes en tamaño
 			-int tipoIntDesdeFloat=(int)tipoFloatLocal;
 			-long tipoLongDesdeDouble=(long)tipoDoubleLocal;
+	-Calculos
+		-El tipo resultado de una operacion es igual al tipo mas alto de una operacion.
+			-Una operacion entre dos int, resultará en un int
+			-Una operacion entre un int y un double dará un double
 			
 -3.4 wrapper clases
 	-Una clase envolvente tiene dos cronstructores
@@ -35,6 +39,13 @@
 			-int intLocal3=shortLocalClase; <- funciona cuando el wrapper quepa en el primitivo
 	-float floatLocal=enteroLocal.floatValue(); <- Para contertir a primitivo se tiene el metodo ...Value();
 	-String tiene el parse para transdormar a primitivos
+	-El compilador puede hacer un casting o wrapping implicito pero no ambos
+	-Default.
+		-int y double son los defaults cuando se escribe 1 o 1.2
 
+-Comparacion
+	-Si se compara un primitivo con un wrapper, se extrae el valor del wrapper para comparar los valores como primitivos
 			
 			
+-Tamaños
+	-byte (-128,127)

@@ -28,3 +28,11 @@
 		-LocalDate fecha =LocalDate.parse(fechaString, formato);
 		
 	--comentario agregado
+	
+-Datos
+	-El constructor es privado, por lo que solo se puede instanciar con of
+	-equals e isEquals funcionan para comparar
+	-Las clases que se usan son final
+	
+-Formaters
+	BASIC_ISO_DATE, ISO_DATE, ISO_LOCAL_DATE, ISO_TIME, ISO_LOCAL_TIME, ISO_DATE_TIME, ISO_LOCAL_DATE_TIME.

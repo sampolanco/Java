@@ -3,8 +3,11 @@ package model.escuela;
 public class Trabajador {
 	private String nombre;
 	private Escuela escuela;
-	
+
 	public Trabajador() {
+	}
+	public Trabajador(String nombre) {
+		this.nombre=nombre;
 	}
 	
 	public void trabajar() {

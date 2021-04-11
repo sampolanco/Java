@@ -1,0 +1,50 @@
+-Java
+	-Se agrega el import automatico de java.lang
+
+-Compilador
+	-javac -d classes\ src\com\udayan\test\Exam.java
+		-crea el .class de la clase java, estando posicionado antes de la carpeta src
+	-java -cp Quiz\Sec07\classes\ com.udayan.test.Exam
+		-para compilar se debe especificar el classpath
+	-Las variables en tiempo de compilacion deben ser especificadas con literales
+		-final boolean boleano=true;
+		-final boolean boleano2;
+		-boleano2=false;
+			-boleano2 no es una constante en tiempo de compilacion
+	-Las variables locales deben ser inicializadas
+		-Si no se usan se pueden no inicializar
+
+-switch
+	- Solo permite int, char, byte, Integer, strings o Enumeraciones
+		-En el caso de objetos hace un equals
+	-En el caso de que el default sea la primera opcion
+		-Si se encuentra un match exacto, se toma ese match y sigue el flujo
+		-Si no se encuentra un match se toma el default
+
+-StringBuilder
+	-sb.delete(8, 1000);
+		-No arroja excepcion siempre y cuando el contenido del StringBuilder no sea mayor a 8
+
+-Collections
+	-Solo se pueden crear colecciones de clases
+	-remove por objeto manda a llamar por dentro al metodo equals
+	-remove por indice regresa el objeto anterior. Si se hace un remove de null se arroja un nullpointer
+	
+-Excepciones
+	-Se puede decharar un try junto con un catch o un finally
+	-Java lanza error de compilacion si sabe que una excepcion no es alcanzable
+	-Cuando se lanza explicitamente una excepcion se tiene que agregar la propiedad throws al metodo
+	-Java lanza error de compilacion si se intenta cachar una excepcion que no sea en tiempo de ejecucion
+		-Cuando no se tenga codigo que pueda arrojar la excepcion 
+	
+-instanceof
+	-Lanza error de compilacon cuando
+		-Se intenta hacer un instanceof con una clase que no tiene ninguna relacion 
+
+-Boolean
+	-La clase Boolean acepta cualquier forma de escribir true. Todo lo demas lo pone como false
+	-null tambien es false
+	
+-Objetos
+	-No se pueden usar los objetos que no han sido inicializados
+

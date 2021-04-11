@@ -1,5 +1,7 @@
 -default
 	-solo es accesible para las clases que están en el mismo paquete
+	-el orden. Del mas restrigido al menos es: 
+		private -> default -> protected -> public
 -protected
 	-es accesible por clases en el mismo paquete y subclases
 	

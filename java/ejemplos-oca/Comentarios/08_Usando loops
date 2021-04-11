@@ -5,3 +5,9 @@
 	-En el campo de incremento se puede tener cualquier logica
 	-break para romper el ciclo
 	-continue para seguir el siguiente ciclo
+	
+-while
+	-Si el compilador sabe que el while no se va a ejecutar (Atributos final) lanza error de compilacion
+	-Si se sabe que el while será un loop infinito y este tiene codigo abajo marca error de codigo inalcanzable
+		-Esta logica solo es valida dentro del metodo
+		-Si se tiene un break dentro del while se ignora esta regla

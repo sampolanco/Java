@@ -51,10 +51,24 @@ public class numericos {
 		
 	}
 	
+	private static void add(Double d1, Double d2) {
+        System.out.println("Double version: " + (d1 + d2));
+    }
+	private static void add(Double d1) {
+        System.out.println("Double version: " + (d1));
+    }	
+	private static void add(Float d1) {
+        System.out.println("Float version: " + (d1));
+    }
+    
 	public static void main(String[] args) {
 		evaluarOperacionEntero();
 		evaluarIncremento();
 		operadorTernario();
+        add(10.0, new Double(10.0));
+        add(10.02);
+        
+
 	}
 
 }
