@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sam.microservicio.manipulararreglo.repositorio.dto.ElementoLista;
 
-@RestController("lista/")
-@RequestMapping(path="lista/")
+@RestController()
+@RequestMapping(path="lista")
 public class ListaController {
 	@Autowired
 	private Environment environment;

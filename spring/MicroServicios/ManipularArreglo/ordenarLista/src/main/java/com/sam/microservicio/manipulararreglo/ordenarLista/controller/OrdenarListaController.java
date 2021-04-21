@@ -14,32 +14,33 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.yaml.snakeyaml.util.ArrayUtils;
 
+import com.sam.microservicio.manipulararreglo.ordenarLista.configuracion.proxy.RepositorioProxy;
 import com.sam.microservicio.manipulararreglo.ordenarLista.dto.ElementoLista;
 
 
 @RestController
-@RequestMapping(path="ordenar-lista/")
+@RequestMapping(path="ordenar-lista")
 public class OrdenarListaController {
-	private String urlListaController="http://localhost:8090/lista/";
+	private String urlListaController="http://localhost:8090/lista";
 	@Autowired
-	private Environment environment;
+	private RepositorioProxy repositorioProxy;
 	
 	@GetMapping
 	public List<ElementoLista> getListaOrdenada(){
 		List<ElementoLista> lista=obtenerListaDesdeServicio();
 		return lista;	
 	}
-	@GetMapping(value="texto/")
+	@GetMapping(value="/texto")
 	public List<ElementoLista> getListaOrdenadaTexto(){
-		List<ElementoLista> lista=obtenerListaDesdeServicio();
+		List<ElementoLista> lista=obtenerListaDesdeServicioProxy();
 		lista.sort((x,y)->{
 			return x.getTexto().compareTo(y.getTexto());
 		});
 		return lista;
 	}
-	@GetMapping(value="numero/")
+	@GetMapping(value="/numero")
 	public List<ElementoLista> getListaOrdenadaNumero(){
-		List<ElementoLista> lista=obtenerListaDesdeServicio();
+		List<ElementoLista> lista=obtenerListaDesdeServicioProxy();
 		lista.sort((x,y)->{
 			return x.getNumero()-y.getNumero();
 		});
@@ -51,6 +52,12 @@ public class OrdenarListaController {
 		ResponseEntity<ElementoLista[]> response=
 				new RestTemplate().getForEntity(urlListaController, ElementoLista[].class);
 		ElementoLista[] listaArray=response.getBody();
+		lista=Arrays.asList(listaArray);
+		return lista;
+	}
+	private List<ElementoLista> obtenerListaDesdeServicioProxy() {
+		List<ElementoLista> lista;
+		ElementoLista[] listaArray=repositorioProxy.getElementosLista();
 		lista=Arrays.asList(listaArray);
 		return lista;
 	}
