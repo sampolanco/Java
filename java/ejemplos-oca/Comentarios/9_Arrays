@@ -5,3 +5,4 @@
 	-Una vez creado el array no se puede cambiar el tamaño de este
 	-tienen el atributo length
 	-el metodo clone copia todas las referencias de una lista a otra
+	-Arrays.asList(listaArray); convierte un array en un collection
