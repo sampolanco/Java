@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class OutputStream {
+public class MainOutputStream {
 
 	public static void main(String[] args) throws IOException {
         String ubicacion="\\WbasketSEDOFEM\\tmp\\edofin\\2020\\11\\26\\78\\formatos\\FormatoSistemaAlertas_78_2011261356.xlsx";
