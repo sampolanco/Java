@@ -1,10 +1,13 @@
-package javaEjemplos.archivos;
+package javaEjemplos.archivos.eventmodel;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ConcurrentModificationException;
+import java.util.Map;
+import java.util.Date;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -13,7 +16,6 @@ import javax.xml.parsers.SAXParserFactory;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.xssf.eventusermodel.ReadOnlySharedStringsTable;
 import org.apache.poi.xssf.eventusermodel.XSSFReader;
 import org.apache.poi.xssf.model.SharedStringsTable;
 import org.apache.poi.xssf.model.StylesTable;
@@ -22,21 +24,23 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-public class Main {
+import javaEjemplos.archivos.eventmodel.shetHandler.SheetHandler;
 
+
+public class MainLecturaStream {
+
+	private static SheetHandler handler;
+	
 	public static void main(String[] args) throws IOException {
-		File initialFile = new File("E:\\HACIENDA\\MOCCFI\\documentos prueba\\PLANTILLA_MALA.xlsx");
-		InputStream stream;
+		File initialFile = new File("C:\\Users\\samy_\\Desktop\\HACIENDA\\moccfi\\tabla_amortizacion_datos.xlsx");
+		InputStream stream=null;
 		try {
 			stream = new FileInputStream(initialFile);
 			boolean validoNuevo = validateEncabezadosNuevo(initialFile);
 			System.out.println("validoNuevo: " + validoNuevo);
-			//boolean valido = validateEncabezados(new String[] { "Fecha", "Tasa variable" }, stream);
-			//System.out.println("Valido: " + valido);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 
 	}
 
@@ -46,7 +50,6 @@ public class Main {
 		try {
 			container = OPCPackage.open(file.getAbsolutePath());
 			XSSFReader xssfReader = new XSSFReader(container);
-			//ReadOnlySharedStringsTable strings = new ReadOnlySharedStringsTable(container);
 			SharedStringsTable strings = xssfReader.getSharedStringsTable();
 			
 			StylesTable styles = xssfReader.getStylesTable();
@@ -55,6 +58,8 @@ public class Main {
 				InputStream stream = iter.next();
 
 				processSheet(styles, strings, stream);
+	            procesarLecturaExcel();
+
 				stream.close();
 			}
 		} catch (InvalidFormatException e) {
@@ -66,6 +71,8 @@ public class Main {
 		} catch (OpenXML4JException e) {
 			e.printStackTrace();
 			return false;
+		} catch (RuntimeException e) {
+			
 		}
 		
 		return true;
@@ -78,14 +85,29 @@ public class Main {
         try {
             SAXParser saxParser = saxFactory.newSAXParser();
             XMLReader sheetParser = saxParser.getXMLReader();
-            ContentHandler handler = new SheetHandler(strings);
+            handler = new SheetHandler(strings);
             sheetParser.setContentHandler(handler);
-            sheetParser.parse(sheetSource);
+            try {
+	            sheetParser.parse(sheetSource);
+            }
+            catch(Exception e) {}
             
         } catch (ParserConfigurationException e) {
             throw new RuntimeException("SAX parser appears to be broken - " + e.getMessage());
         }
      }
+	
+	private static void procesarLecturaExcel() {
+        System.out.println("procesarLecturaExcel--");
+
+		for (Map.Entry<Date, Double> entry : handler.mapTasas.entrySet()) {
+
+			Date k = entry.getKey();
+			Double v = entry.getValue();
+            System.out.println("Fecha: "+k + " Pago: "+ v);
+        }
+	}
+	/*
 	protected static void processSheetSimplificado(StylesTable styles, ReadOnlySharedStringsTable strings, InputStream sheetInputStream) throws IOException, SAXException {
 
         InputSource sheetSource = new InputSource(sheetInputStream);
@@ -101,5 +123,6 @@ public class Main {
             throw new RuntimeException("SAX parser appears to be broken - " + e.getMessage());
         }
      }
+     */
 
 }

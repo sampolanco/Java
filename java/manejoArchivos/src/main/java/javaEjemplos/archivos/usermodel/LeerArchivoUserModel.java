@@ -1,4 +1,4 @@
-package javaEjemplos.archivos;
+package javaEjemplos.archivos.usermodel;
 
 
 import java.io.InputStream;
@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ValidarEncabezadosViejo {
+public class LeerArchivoUserModel {
 	public boolean validateEncabezados(final String encs[], final InputStream archivo) {
 		XSSFWorkbook book = null;
 		XSSFSheet sheet = null;
