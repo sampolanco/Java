@@ -18,7 +18,8 @@ Configuracion
 		 	 ejemplo:http://xmlns.jcp.org/xml/ns/javaee
 	-log4j2
 		Por default se busca en WEB-INF
-		 Debe estar en el classpath para ser tomado por el servidor.
+		 Debe estar en el classpath para ser tomado por el servidor. 
+		 Todo lo que está en src/main/resources termina en la carpeta WEB-INF
 	
 	
 EJB
