@@ -13,7 +13,7 @@ public class PersonaJDBC {
 	private static final String SELECT_ALL_PERSONAS="select id,nombre,apellido,edad from persona";
 	private static final String INSERT_PERSONA="insert into persona (nombre,apellido,edad) values (?,?,?)";
 	private static final String UPDATE_PERSONA="update persona set nombre=?,apellido=?,edad=? where id=?";
-	private static final String DELETE_PERSONA="delete form persona where id=?";
+	//private static final String DELETE_PERSONA="delete form persona where id=?";
 	
 	
 	public static boolean insert(Persona persona) {

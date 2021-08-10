@@ -1,5 +1,9 @@
 Aplicacion con ejemplos de JPA utilizando una base de datos en memoria (H2) y hibernate
 
+Notas
+	-Se cambia de 
+		Esto es debido a que el servidor de aplicaciones es el que se encargará de administrar las transacciones
+		
 Documentacion XMLs
 	-https://jakarta.ee/xml/ns/jakartaee/
 	
@@ -16,6 +20,13 @@ Configuracion
 		Los metadatos del archivo van ligados a los del web.xml.
 			Se puede entrar a la liga que se tiene en el web.xml para ver la configuracion del persistence.xml
 		 	 ejemplo:http://xmlns.jcp.org/xml/ns/javaee
+		Se puede utilizar transaction-type="RESOURCE_LOCAL" o transaction-type="JTA"
+			En RESOURCE_LOCAL se configuran los datos de conexion y se manejan transacciones localmente
+			En JTA se configura el nombre de la conexion que se configura en el servidor de aplicaciones
+			 -El servidor de aplicaciones se encarga de manejar las transacciones
+			 -Para este caso se configuró la conexion en la consola de glassfish
+			    se insertó el jar de h2 "h2.jar" en las librerias de glassFish "glassfish5\glassfish\lib"
+			 -Al momento de utilizar @PersistenceContext(unitName="aplicacionjpaPU") se tiene que utilizar JTA
 	-log4j2
 		Por default se busca en WEB-INF
 		 Debe estar en el classpath para ser tomado por el servidor. 

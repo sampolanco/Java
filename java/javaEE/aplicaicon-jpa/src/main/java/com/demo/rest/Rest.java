@@ -9,9 +9,8 @@
  */
 package com.demo.rest;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -21,7 +20,6 @@ import javax.ws.rs.core.Response;
 import com.demo.model.Persona;
 import com.demo.service.PersonaService;
 
-import org.h2.jdbcx.JdbcConnectionPool;
 
 /**
  * Simple Hello World endpoint.
@@ -41,9 +39,15 @@ public class Rest {
     @GET
     @Path("persona")
     public Response persona(){
-    	Persona persona=personaService.buscarPersonaPorNombre("sam");
+    	Persona persona=personaService.findByNombre("sam");
         return Response.ok(persona).build();
     	//return null;
+    }
+    @GET
+    @Path("personaFindAll")
+    public Response personaFindAll(){
+    	List<Persona> listaPersonas=personaService.findAll();
+        return Response.ok(listaPersonas.toString()).build();
     }
     @GET
     @Path("mensaje")
