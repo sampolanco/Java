@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -49,7 +50,12 @@ public class PersonaDAOImpl implements PersonaDAO{
 	public boolean insert(Persona persona) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("aplicacionjpaPU");
 		EntityManager em=emf.createEntityManager();
+		EntityTransaction tx=em.getTransaction();
+		tx.begin();
 		em.persist(persona);
+		tx.commit();
+		em.close();
+		emf.close();
 		return true;
 	}
 	@Override

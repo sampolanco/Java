@@ -1,4 +1,4 @@
-package jdbcEjemplosBasicos.persona;
+package com.demo.persona;
 
 import static org.junit.Assert.*;
 
@@ -6,32 +6,36 @@ import java.util.List;
 
 import org.junit.Test;
 
-import jdbcEjemplosBasicos.jdbc.PersonaJDBC;
-import jdbcEjemplosBasicos.model.Persona;
+import com.demo.model.Persona;
+import com.demo.model.PersonaDAOImpl;
+import com.demo.service.PersonaService;
+import com.demo.service.PersonaServiceImpl;
 
-public class TransaccionPersona {
+public class TransaccionPersonaTest {
 
 	@Test
 	public void testTransaccionExitosa() {
 		System.out.println("testTransaccionExitosa");
+		PersonaService personaService = new PersonaServiceImpl(new PersonaDAOImpl());
 		boolean generarError=false;
-		List<Persona> listaPersonasAntes=PersonaJDBC.findAll();
+		List<Persona> listaPersonasAntes=personaService.findAll();
 		imprimirPersonas(listaPersonasAntes);
 		Persona nuevaPersona=new Persona("persona","nueva",20);
-		PersonaJDBC.insertDeletePersonaTransaccion(nuevaPersona,generarError);
-		List<Persona> listaPersonasDespues=PersonaJDBC.findAll();
+		personaService.insertDeletePersonaTransaccion(nuevaPersona,generarError);
+		List<Persona> listaPersonasDespues=personaService.findAll();
 		imprimirPersonas(listaPersonasDespues);	
 		assertNotEquals(listaPersonasAntes.size(), listaPersonasDespues.size());
 	}
 	@Test
 	public void testTransaccionFallida() {
 		System.out.println("testTransaccionFallida");
+		PersonaService personaService = new PersonaServiceImpl(new PersonaDAOImpl());
 		boolean generarError=true;
-		List<Persona> listaPersonasAntes=PersonaJDBC.findAll();
+		List<Persona> listaPersonasAntes=personaService.findAll();
 		imprimirPersonas(listaPersonasAntes);
 		Persona nuevaPersona=new Persona("persona","nueva",20);
-		PersonaJDBC.insertDeletePersonaTransaccion(nuevaPersona,generarError);
-		List<Persona> listaPersonasDespues=PersonaJDBC.findAll();
+		personaService.insertDeletePersonaTransaccion(nuevaPersona,generarError);
+		List<Persona> listaPersonasDespues=personaService.findAll();
 		imprimirPersonas(listaPersonasDespues);	
 		assertEquals(listaPersonasAntes.size(), listaPersonasDespues.size());
 	}
