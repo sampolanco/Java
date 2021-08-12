@@ -14,10 +14,12 @@ public class InsertPersona {
 	public void test() {
 		List<Persona> listaPersonas;
 		listaPersonas=PersonaJDBC.findAll();
+		System.out.println("antes");
 		imprimirPersonas(listaPersonas);
 		Persona nuevaPersona=new Persona("persona","nueva",20);
 		PersonaJDBC.insert(nuevaPersona);
 		listaPersonas=PersonaJDBC.findAll();
+		System.out.println("despues");
 		imprimirPersonas(listaPersonas);	
 	}
 	

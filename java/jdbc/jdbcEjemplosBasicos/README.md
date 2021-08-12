@@ -1,5 +1,6 @@
 Notas
  Ejecutar primero el test crearBaseDatosTest para poder crear la base de datos en H2
+ La clase PersonaJDBC contiene la logica para las modificaciones a la base
 
 Desventajas
  Utilizar jdbc implica el manejo de cada objeto y su tabla en la base de datos
