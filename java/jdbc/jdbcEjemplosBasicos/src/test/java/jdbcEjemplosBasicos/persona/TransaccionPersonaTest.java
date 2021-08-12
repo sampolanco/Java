@@ -9,7 +9,7 @@ import org.junit.Test;
 import jdbcEjemplosBasicos.jdbc.PersonaJDBC;
 import jdbcEjemplosBasicos.model.Persona;
 
-public class TransaccionPersona {
+public class TransaccionPersonaTest {
 
 	@Test
 	public void testTransaccionExitosa() {

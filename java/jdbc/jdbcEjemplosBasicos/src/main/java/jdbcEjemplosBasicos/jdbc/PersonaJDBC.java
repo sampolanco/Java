@@ -7,25 +7,38 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jdbcEjemplosBasicos.model.Direccion;
 import jdbcEjemplosBasicos.model.Persona;
 
 public class PersonaJDBC {
-	private static final String SELECT_ALL_PERSONAS="select id,nombre,apellido,edad from persona";
-	private static final String INSERT_PERSONA="insert into persona (nombre,apellido,edad) values (?,?,?)";
+	private static final String SELECT_ALL_PERSONAS="select id,nombre,apellido,edad,id_direccion from persona";
+	private static final String INSERT_PERSONA_SIN_DIRECCION="insert into persona (nombre,apellido,edad) values (?,?,?)";
+	private static final String INSERT_PERSONA_CON_DIRECCION="insert into persona (nombre,apellido,edad,id_direccion) values (?,?,?,?)";
 	private static final String UPDATE_PERSONA="update persona set nombre=?,apellido=?,edad=? where id=?";
+	private static final String SELECT_DIRECCION_PERSONA="select id,calle,ciudad,numero from direccion where id=?";
+
 	//private static final String DELETE_PERSONA="delete form persona where id=?";
 	
 	
-	public static boolean insert(Persona persona) {
+	public static boolean insert(Persona persona,Integer idDireccion) {
 		Connection conexion=null;
 		PreparedStatement ps=null;
 		int filasModificadas=0;
 		try {
 			conexion=ConexionJDBC.obtenerConexionDB();
-			ps=conexion.prepareStatement(INSERT_PERSONA);
-			ps.setString(1, persona.getNombre());
-			ps.setString(2, persona.getApellido());
-			ps.setInt(3, persona.getEdad());
+			if(idDireccion==null) {
+				ps=conexion.prepareStatement(INSERT_PERSONA_SIN_DIRECCION);
+				ps.setString(1, persona.getNombre());
+				ps.setString(2, persona.getApellido());
+				ps.setInt(3, persona.getEdad());
+			}
+			else {
+				ps=conexion.prepareStatement(INSERT_PERSONA_CON_DIRECCION);
+				ps.setString(1, persona.getNombre());
+				ps.setString(2, persona.getApellido());
+				ps.setInt(3, persona.getEdad());
+				ps.setInt(4, idDireccion);
+			}
 
 			filasModificadas=ps.executeUpdate();
 			
@@ -52,8 +65,11 @@ public class PersonaJDBC {
 				String nombre=rs.getString("nombre");
 				String apellido=rs.getString("apellido");
 				int edad=rs.getInt("edad");
+				int idDireccion=rs.getInt("id_direccion");
 				Persona persona=new Persona(nombre,apellido,edad);
+				persona.setIdDireccion(idDireccion);
 				persona.setId(id);
+				persona.setDireccion(findDireccionPersona(idDireccion));
 				lista.add(persona);
 			}
 			
@@ -67,7 +83,36 @@ public class PersonaJDBC {
 		}
 		return lista;
 	}
-
+	public static Direccion findDireccionPersona(Integer idDireccion){
+		Direccion direccion=null;
+		Connection conexion=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			conexion=ConexionJDBC.obtenerConexionDB();
+			ps=conexion.prepareStatement(SELECT_DIRECCION_PERSONA);
+			ps.setInt(1, idDireccion);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				int id=rs.getInt("id");
+				String callle=rs.getString("calle");
+				String ciudad=rs.getString("ciudad");
+				int numero=rs.getInt("numero");
+				direccion=new Direccion(callle,ciudad,numero);
+				direccion.setId(id);
+			}
+			
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		finally {
+			ConexionJDBC.close(ps);
+			ConexionJDBC.close(rs);
+		}
+		return direccion;
+	}
 	public static void insertDeletePersonaTransaccion(Persona persona,boolean generarError) {
 		Connection conexion=null;
 		PreparedStatement ps=null;
@@ -76,7 +121,7 @@ public class PersonaJDBC {
 			conexion=ConexionJDBC.obtenerConexionDB();
 			conexion.setAutoCommit(false);
 			
-			ps=conexion.prepareStatement(INSERT_PERSONA);
+			ps=conexion.prepareStatement(INSERT_PERSONA_SIN_DIRECCION);
 			ps.setString(1, persona.getNombre());
 			ps.setString(2, persona.getApellido());
 			ps.setInt(3, persona.getEdad());

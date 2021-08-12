@@ -11,7 +11,8 @@ public class Persona implements Serializable{
 	private String nombre;
 	private String apellido;
 	private Integer edad;
-	
+	private Integer idDireccion;
+	private Direccion direccion;
 	
 	public Persona() {}
 	public Persona(String nombre, String apellido, Integer edad) {
@@ -44,9 +45,21 @@ public class Persona implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+	public Integer getIdDireccion() {
+		return idDireccion;
+	}
+	public void setIdDireccion(Integer idDireccion) {
+		this.idDireccion = idDireccion;
+	}
+
+	public Direccion getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", idDireccion=" + idDireccion + "]";
 	}
 }
