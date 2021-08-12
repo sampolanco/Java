@@ -1,4 +1,4 @@
-package jdbcEjemplosBasicos;
+package com.demo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import org.junit.Test;
 public class crearBaseDatosTest {
 
 	@Test
-	void test() throws Exception {
+	public void test() throws Exception {
     	Connection conn = DriverManager.getConnection("jdbc:h2:~/test","","");
     	conn.close();
     	System.out.println("Conexion a h2 exitosa");
@@ -21,7 +21,7 @@ public class crearBaseDatosTest {
     	System.out.println("Conexion a pool h2 exitosa");
 	}
 	@Test
-	void crearTablaPersona() throws Exception {
+	public void crearTablaPersona() throws Exception {
 		String crearTablaScript=
 				"CREATE TABLE IF NOT EXISTS persona (\r\n" + 
 				"  id INT AUTO_INCREMENT  PRIMARY KEY,\r\n" + 
