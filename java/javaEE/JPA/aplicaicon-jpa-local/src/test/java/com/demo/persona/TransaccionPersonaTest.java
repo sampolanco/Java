@@ -11,7 +11,7 @@ import com.demo.model.PersonaDAOImpl;
 import com.demo.service.PersonaService;
 import com.demo.service.PersonaServiceImpl;
 
-public class TransaccionPersona {
+public class TransaccionPersonaTest {
 
 	@Test
 	public void testTransaccionExitosa() {

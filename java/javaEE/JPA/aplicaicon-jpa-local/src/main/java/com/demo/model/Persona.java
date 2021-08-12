@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -28,6 +30,12 @@ public class Persona implements Serializable{
 	private String apellido;
 	@Column(name="edad")
 	private Integer edad;
+	//@Column(name="id_direccion")
+	//private Integer idDireccion;
+	
+	@ManyToOne
+	@JoinColumn(name="id_direccion",referencedColumnName = "id")
+	private Direccion direccion;
 	
 	
 	public Persona() {}
@@ -61,7 +69,21 @@ public class Persona implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+	/*
+	public Integer getIdDireccion() {
+		return idDireccion;
+	}
+	public void setIdDireccion(Integer idDireccion) {
+		this.idDireccion = idDireccion;
+	}
+	*/
+
+	public Direccion getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 	@Override
 	public String toString() {
 		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
