@@ -1,12 +1,12 @@
 Aplicacion con ejemplos de JPA utilizando una base de datos en memoria (H2) y hibernate
 
+Test
+	-http://localhost:8080/aplicacion-jpa/rest/personaFindAll
+
 Notas
 	-Se cambia de 
 		Esto es debido a que el servidor de aplicaciones es el que se encargará de administrar las transacciones
 		
-Ejecucion
-	mvn clean install -DskipTests
-	
 Documentacion XMLs
 	-https://jakarta.ee/xml/ns/jakartaee/
 	
@@ -16,10 +16,6 @@ JPA es un estandar de persistencia en java.
 		-abstrayendo la comunicacion con la bd 
 		-creando un estandar para la manipulacion de la bd
 		
-Test
-	-Se tiene que iniciar primero el servidor de aplicaciones para poder obtener la conexion
-	-http://localhost:8080/aplicacion-jpa/rest/personaFindAll
-
 Configuracion
 	-persistence.xml
 		Este archivo se ubica en META-INF y aqui es donde se configuran aspectos de la conexion a la base de datos
