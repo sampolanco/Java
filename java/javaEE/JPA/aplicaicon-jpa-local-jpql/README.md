@@ -4,17 +4,14 @@ Test
 	-http://localhost:8080/aplicacion-jpa/rest/personaFindAll
 
 Notas
-	-Se cambia de 
-		Esto es debido a que el servidor de aplicaciones es el que se encargará de administrar las transacciones
+	-Se incluyen ejemplos con jpql
+	-Se incluyen ejemplos usando CriteriaBuilder
 		
 Documentacion XMLs
 	-https://jakarta.ee/xml/ns/jakartaee/
 	
-JPA es un estandar de persistencia en java.
-	-en este proyecto se verá la implementacion on hibernate
-	-La idea es trabajar con objetos java y no con sql
-		-abstrayendo la comunicacion con la bd 
-		-creando un estandar para la manipulacion de la bd
+CriteriaBuilder
+	-Se pueden realizar filtros complejos mediante código aplicando solo los necesarios
 		
 Configuracion
 	-persistence.xml
@@ -47,4 +44,3 @@ H2
 	prueba
 		http://localhost:8080/aplicacion-jpa/rest/testdb
 		
-	Que es un conection pool?

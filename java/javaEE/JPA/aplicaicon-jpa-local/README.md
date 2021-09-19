@@ -47,4 +47,3 @@ H2
 	prueba
 		http://localhost:8080/aplicacion-jpa/rest/testdb
 		
-	Que es un conection pool?

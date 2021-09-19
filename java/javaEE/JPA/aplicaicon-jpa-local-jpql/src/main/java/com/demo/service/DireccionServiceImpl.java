@@ -51,6 +51,16 @@ public class DireccionServiceImpl implements DireccionService{
 		return direccionDAO.findMinMaxCount();
 	 }
 	@Override
+	public 
+	List<Direccion> findAllCriteria(){
+		return direccionDAO.findAllCriteria();
+	}
+	@Override
+	public 
+	List<Direccion> findCriteria(Direccion filtro){
+		return direccionDAO.findCriteria(filtro);
+	}
+	@Override
 	public boolean insert(Direccion persona) {
 		return direccionDAO.insert(persona);
 	}

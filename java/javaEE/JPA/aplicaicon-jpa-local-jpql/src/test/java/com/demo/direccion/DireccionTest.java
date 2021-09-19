@@ -75,6 +75,29 @@ public class DireccionTest {
 			log.info(dato);
 		}
 	}
+	@Test
+	public void findAllCriteria() {
+		log.info("findAllCriteria");
+		DireccionService direccionService = new DireccionServiceImpl(new DireccionDAOImpl());
+		List<Direccion> direcciones=direccionService.findAllCriteria();
+		for(Direccion direccion:direcciones) {
+			log.info(direccion);
+		}
+	}
+	@Test
+	public void findCriteria() {
+		log.info("findCriteria");
+		Direccion filtro =new Direccion();
+		filtro.setId(1);
+		//filtro.setCalle("ac");
+		filtro.setCiudad("Ma");
+		filtro.setNumero(21);
+		DireccionService direccionService = new DireccionServiceImpl(new DireccionDAOImpl());
+		List<Direccion> direcciones=direccionService.findCriteria(filtro);
+		for(Direccion direccion:direcciones) {
+			log.info(direccion);
+		}
+	}
 	private void pintarDirecciones() {
 		log.info("pintarDirecciones");
 		DireccionService direccionService = new DireccionServiceImpl(new DireccionDAOImpl());
