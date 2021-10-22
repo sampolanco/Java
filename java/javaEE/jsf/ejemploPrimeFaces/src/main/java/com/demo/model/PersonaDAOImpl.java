@@ -71,8 +71,10 @@ public class PersonaDAOImpl implements PersonaDAO{
 	public boolean delete(Persona persona) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("aplicacionjpaPU");
 		EntityManager em=emf.createEntityManager();
-		em.merge(persona);
-		em.remove(persona);
+		em.getTransaction().begin();
+		Persona personadelete=em.find(Persona.class, persona.getId());
+		em.remove(personadelete);
+		em.getTransaction().commit();
 		return true;
 	}
 

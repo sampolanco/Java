@@ -18,13 +18,13 @@
 			</f:facet>
 		</p:ajaxStatus>
 		
-		<h:form id="personaListForm">
+		<h:form id="personasListForm">
 		
 			<p:growl id="messages" showDetail="true"></p:growl>
 		
-			<p:message></p:message>
+			<p:messages></p:messages>
 		
-			<p:dataTable id="personaDataTable" value="#{personaBean.personas}" var="persona" editable="true" 
+			<p:dataTable id="personasDataTable" value="#{personaBean.personas}" var="persona" editable="true" 
 			rowKey="#{persona.id}" selection="#{personaBean.personaSeleccionada}" selectionMode="single">
 				<f:facet name="header">
 					Listado de personas
@@ -79,24 +79,27 @@
 				<f:facet name="footer">
 					<h:commandButton value="Regresar" action="index"></h:commandButton>
 					<p:spacer height="5px"></p:spacer>
+					
 					<p:commandButton value="Agregar" actionListener="#{personaBean.cleanPersonaSeleccionada}"
-					update=":dialogForm" oncomplete="PF('personaDialog').show()"></p:commandButton>
+					update=":dialogForm" oncomplete="PF('personaDialog').show()"></p:commandButton> 
 				</f:facet>
 				
 				<p:ajax event="rowEdit" listener="#{personaBean.editListener}"> </p:ajax>
 			</p:dataTable>
 			
-			<p:contextMenu for="personaDataTable">
-				<p:menuitem value="Eliminar" update="personaListForm:personaDataTable" icon="ui-icon-close"
+			<p:contextMenu for="personasDataTable">
+			
+				<p:menuitem value="Eliminar" update="personasListForm:personasDataTable" icon="ui-icon-disk"
 				actionListener="#{personaBean.eliminarPersona}"></p:menuitem>
+				
 			</p:contextMenu>
 		</h:form>
-		
+		 
 		<p:dialog id="personaDlg" widgetVar="personaDialog" header="Agregar persona" modal="true" 
 		showEffect="fade" hideEffect="fade" resizable="false">
 			<h:form id="dialogForm">
 				<p:outputPanel id="personaDetail">
-					<p:panelGrid id="display" column="4" columnClasses="label,value">
+					<p:panelGrid id="display" columns="4" columnClasses="label,value">
 						<h:outputText value="Nombre"> </h:outputText>
 						<h:inputText value="#{personaBean.personaSeleccionada.nombre}"></h:inputText>
 						
@@ -108,12 +111,13 @@
 						
 						<f:facet name="footer">
 							<p:commandButton value="Agregar" actionListener="#{personaBean.agregarPersona}" 
-							update="display, :personaListForm:personaDataTable" oncomplete="PF('personaDialog').hide();"></p:commandButton>
+							update="display, :personasListForm:personasDataTable" oncomplete="PF('personaDialog').hide();"></p:commandButton>
 						</f:facet>
 					</p:panelGrid>
 				</p:outputPanel>
 			</h:form>
 		</p:dialog>
+		 
 
 	</h:body>
 </html>
