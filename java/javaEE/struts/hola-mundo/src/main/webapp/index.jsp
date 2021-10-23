@@ -13,5 +13,9 @@
 	<a href="saludos-convencion">Ejecutar Struts 2 usando convenciones</a>
 	<p/>
 	<a href="mostrar-persona">Ejecutar Struts 2 usando convenciones persona</a>
+	<p/>
+	<a href="login">Dirigirse al login usando convenciones</a>
+	<p/>
+	<a href="login-anotaciones">Dirigirse al login usando anotaciones</a>
 </body>
 </html>

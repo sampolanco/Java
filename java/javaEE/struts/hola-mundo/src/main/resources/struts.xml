@@ -13,6 +13,10 @@
 		<action name="saludar" class="holaMundoStruts.beans.HolaMundoAction">
 			<result name="exito">/saludos.jsp</result>
 		</action>
+		<action name="validarUsuario" class="holaMundoStruts.beans.actions.LoginAction">
+			<result name="success">WEB-INF/content/bienvenido.jsp</result>
+			<result name="input" type="redirectAction">login</result>
+		</action>
 	</package>
 
 </struts>

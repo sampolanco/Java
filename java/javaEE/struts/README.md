@@ -8,9 +8,8 @@ Strut2
 #Configuracion
 	Para habilitar a Struts trabajar con la aplicacion web se necesita agregar un filter mapping al web.xml 
 	Se tiene que agregar el archivo de configuracion basida struts.xml dentro de src/main/resources
-		se puede omitir si se usan convenciones
+		se puede omitir si se usan convenciones o anotaciones
 		esto sirve para especificar la relacion entre una URL, un Java class, y una view page
-		tambien se pueden usar anotaciones
 
 #Taglibs
 	Se agrega el tag <%@taglib prefix="s" uri="/struts-tags"%>
