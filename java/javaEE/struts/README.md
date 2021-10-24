@@ -14,6 +14,12 @@ Strut2
 #Taglibs
 	Se agrega el tag <%@taglib prefix="s" uri="/struts-tags"%>
 
+#Tiles
+	Son plantillas para construir la pagina
+	Se tiene que agregar en maven struts2-tiles-plugin
+	Se necesita agregar la ubicacion de tiles.xml y un listener en el web.xml 
+	Se tiene que configurar en struts.xml ya que no existen anotaciones para tiles
+
 #Documentacion
 	https://struts.apache.org/getting-started/how-to-create-a-struts2-web-application.html
 

@@ -17,5 +17,7 @@
 	<a href="login">Dirigirse al login usando convenciones</a>
 	<p/>
 	<a href="login-anotaciones">Dirigirse al login usando anotaciones</a>
+	<p/>
+	<a href="persona">Persona objeto complejo</a>
 </body>
 </html>
