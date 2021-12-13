@@ -19,9 +19,21 @@ Factory
 		-La clase envoltorio es responsable de crear un objeto unico
 		-La clase envoltorio provee la forma de acceder al objeto unico
 		
-	-Builder
-		-Se utiliza par aconstruir objetos complejos 
+Builder
+
+		-Se utiliza par aconstruir objetos complejos que tienen muchas combinaciones
+			-Si no se utilizara este patron 
+				-tendriamos muchas subclases por cada tipo de objeto
+				-otra solucion es un constructor gigante con todos los parametros (muchas banderas, muchos nulos)
 		-Se construye usando objetos simples con una serie de pasos
-		-El objeto final se construye mediante un metodo build
+		-Se separa la construccion a otro objeto "builder" 
+		-Si se quire una diferente implementacion de como se construye un objeto se recomienda utilizar varios builders
+			(Ejemplo: Una casa hecha totalmente de madera o de piedra)
+		-https://refactoring.guru/design-patterns/builder
+		
+		
+		
+
+		
 		
 		
