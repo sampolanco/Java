@@ -37,3 +37,17 @@ Facade
 	
 	-Es una fachada que solo expone los componentes que se usarán
 	-Esconde toda la funcionalidad compleja que se tiene por detras de la fachada
+	
+Flyweight 
+	
+	-Se usa para reducir el tamaño en memoria de objetos
+	-Sugiere que se deje de guardar los datos "extrinsecos" en el objeto
+		-extrinseco: Los otros objetos lo pueden cambiar
+		-estos datos se guardan en otro objeto que solo crea las instancias necesarias
+	-Solo los datos "intrinsecos" se deben guardar en el objeto 
+		-intrinseco: Los otros objetos solo lo pueden leer, no cambiar
+	
+Proxy
+	
+	-Se usa para controlar el acceso a una clase
+	-Permite ejecutar un código antes o despeues de alguna logica del negocio del objeto original
