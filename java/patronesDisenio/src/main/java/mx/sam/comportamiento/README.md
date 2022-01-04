@@ -54,5 +54,47 @@ Observer
 	-la diferencia entre Mediator y Observer a menudo resulta difusa
 	-desventajas
 		-el orden en el que se notifica a los clientes es aleatorio
+			
+State
+	
+	-Permite a un objeto alterar su comportamiento cuando un estado interno cambia
+	-Está relacionado con el concepto de maquina de estados finitos
+		-El programa se comporta diferente dependiendo el estado
+	-Se crean nuevas clases para todos los estados posibles de un objeto 
+	-Para la transición entre estados
+		-se sustituye el objeto de un estado por el del nuevo estado
+		-todas las clases de estado siguen la misma interfaz
+	-Esta estructura puede resultar similar al patrón Strategy
+		-en el patrón State, los estados particulares pueden conocerse entre sí
+	-desventajas
+		-puede ser excesivo si la maquina de estados tiene pocos estados o estos cambian raramente
+		
+Strategy 
+	
+	-Permite hacer que las implementaciones de algun algoritmo sean intercambiables
+	-La clase original (contexto) almacena una referencia a una de las estrategias
+	-El cliente seleccioa que estrategia pasarle al contexto
+	-desventajas
+		-si solo se tienen un par de algoritmos que raramente cambian no hay razon real para complicar el programa
+		-se dene conocer las diferencias entre cada estrategia para seleccionar la adecuada
+		
+Template
+
+	-Define el esqueleto (pasos a seguir) de un algoritmo en una superclase
+		- permite que las subclases sobreescriban el algoritmo sin cabiar la estructura
+	-Factory es una especialización del Template
+	-desventajas
+		-el esqueleto puede limitar la creacion
+		-dificil de mantener si se tienen muchos pasos
+		
+Visitor
+
+	-permite separar algoritmos de los objetos sobre los que operan
+	-se crea una clase visitante 
+		-se le pasa el objeto a visitar
+	-se utiliza para visitar todos los elementos de una estructura compleja como un arbol
+	-desventajas
+		-se tiene que actualizar a todos los visitantes cada vez que una clase se añada o elimine
+		-los visitantes pueden carecer de acceso a los campos y metodos para visitar
 		
 		
